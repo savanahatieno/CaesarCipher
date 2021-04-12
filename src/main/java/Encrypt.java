@@ -1,6 +1,9 @@
 public class Encrypt {
     public static void main (String[] args){
-        //start
+        //store key as an interger
+        int key = 6;
+
+        //created a string for encryption
         String text = "Hey, how's it hanging?";
 
         System.out.println(text);
@@ -8,7 +11,7 @@ public class Encrypt {
         char[] chars = text.toCharArray();
 
         for(char a : chars){
-            a += 5;
+            a += key;
             System.out.print(a);
         }
 
