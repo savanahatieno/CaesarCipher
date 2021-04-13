@@ -1,7 +1,13 @@
 package cipher;
+import java.util.Scanner;
+
 
 public class Decrypted {
     public static String  decrypt(String plainText, int shift) {
+       Scanner in=new Scanner (System.in);
+       Encrypted e = new Encrypted();
+
+
         if (shift > 26) {
             shift =  shift%26;
         }
@@ -41,11 +47,13 @@ public class Decrypted {
         return cipherText;
 
     }
+
+
     public static void main (String[]  args){
         String text = "I bet you are smiling right now reading this, have a great day stranger!";
         String encrypted = "^ wzo tjp vmz nhdgdib mdbco ijr mzvydib ocdn, cvqz v bmzvo yvt nomvibzm!";
         String decrypted = decrypt(text, 5);
-        System.out.println(decrypted);
+        System.out.println(text);
         System.out.println(encrypted);
     }
 }

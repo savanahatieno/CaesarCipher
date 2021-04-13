@@ -44,6 +44,9 @@ public class Encrypted {
     public static void main (String[]  args){
         String text = "I bet you are smiling right now reading this, have a great day stranger!";
         String encrypt = encrypt(text, 5);
+        System.out.println(text);
         System.out.println(encrypt);
     }
+
+
 }
