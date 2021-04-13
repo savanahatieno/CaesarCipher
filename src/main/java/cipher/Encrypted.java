@@ -16,7 +16,23 @@ public class Encrypted {
         for(int i = 0; i<length; i++){
             char ch = plainText.charAt(i);
             if(Character.isLetter(ch)){
-                //
+                // check whether its uppercase / lowercase
+                if(Character.isLowerCase(ch)){
+                    char c = (char)(ch+shift);
+                    if(c > 'z'){
+                        cipherText += (char)(ch - (26-shift));
+                    }
+                    else
+                        cipherText += c;
+                }
+                else if(Character.isUpperCase(ch)){
+                    char c = (char)(ch+shift);
+                    if(c > 'Z'){
+                        cipherText += (char)(ch - (26-shift));
+                    }
+                    else
+                        cipherText += c;
+                }
             }
             else{
                 cipherText += ch;
