@@ -11,7 +11,17 @@ public class Encrypted {
 
         String cipherText = "";
         //Getting length of plainText
-
+        int length = plainText.length();
+        //looping the plainText
+        for(int i = 0; i<length; i++){
+            char ch = plainText.charAt(i);
+            if(Character.isLetter(ch)){
+                //
+            }
+            else{
+                cipherText += ch;
+            }
+        }
         return cipherText;
 
    }
