@@ -51,9 +51,10 @@ public class Decrypted {
 
     public static void main (String[]  args){
         String text = "I bet you are smiling right now reading this, have a great day stranger!";
-        String encrypted = "^ wzo tjp vmz nhdgdib mdbco ijr mzvydib ocdn, cvqz v bmzvo yvt nomvibzm!";
-        String decrypted = decrypt(text, 5);
+        String descrypted = decrypt (text, 5);
+        System.out.println(descrypted);
         System.out.println(text);
-        System.out.println(encrypted);
     }
+
+
 }
