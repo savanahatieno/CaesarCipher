@@ -15,3 +15,30 @@ Cipher:   XYZABCDEFGHIJKLMNOPQRSTUVW
 Plaintext:  THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
 Ciphertext: QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD
 ```
+## Prerequisites
+    1. java 11
+    2. Gradle 4.10
+
+## Usage
+
+    1. Clone this repo
+    2. Compile  `gradle compileJava`
+    3. Run cd to cd build/classes/main then run `java App`
+
+
+## Testing
+
+   ```java
+    gradle test
+```
+
+## License
+
+Caesar Cipher was released under [MIT](LICENSE)
+
+## Author
+Agutu, Savanah
+Email: agutusavanah0@gmail.com
+
+
+
