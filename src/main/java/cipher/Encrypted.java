@@ -1,7 +1,20 @@
 package cipher;
 
 public class Encrypted {
+    private String plainText;
+    private int shift;
+
+
+    public int getShift() {
+        return shift;
+    }
+
+    public String getPlainText() {
+        return plainText;
+    }
+
     public static String encrypt(String plainText, int shift) {
+
         if (shift > 26) {
             shift =  shift%26;
         }
