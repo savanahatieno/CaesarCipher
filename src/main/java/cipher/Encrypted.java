@@ -18,7 +18,7 @@ public class Encrypted {
         return mplainText;
     }
 
-    public boolean isValidInputText()
+    public boolean isValidPlainText()
     {
         char[] chars = mplainText.toCharArray();
 
@@ -34,7 +34,7 @@ public class Encrypted {
     {
         return !mplainText.trim().isEmpty();
     }
-    public boolean isValidKey()
+    public boolean isValidShift()
     {
         return mshift >1 && mshift < 26;
 
@@ -42,7 +42,7 @@ public class Encrypted {
 
 
 
-    public String encode()
+    public String encrypt()
     {
         String encrypted = "";
         String encryptedArray[] = mplainText.split("");
@@ -56,8 +56,8 @@ public class Encrypted {
             else
             {
                 int charPosition = alphabet.indexOf(mplainText.charAt(i));
-                int key = (mshift + charPosition) % 26;
-                encrypted += alphabet.charAt(key);
+                int shift = (mshift + charPosition) % 26;
+                encrypted += alphabet.charAt(shift);
             }
         }
         return encrypted.toLowerCase();

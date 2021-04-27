@@ -19,7 +19,7 @@ public class App {
 
 
 
-        System.out.println("Which one do you choose? \n 1.Encypted \n 2. Decrypted \n 3. Exit ");
+        System.out.println("Which one do you choose? \n 1.Encrypted \n 2. Decrypted \n 3. Exit ");
         int choose = scan.nextInt();
         //Able to go to the next line
         scan.nextLine();
@@ -32,7 +32,7 @@ public class App {
             System.out.println("Enter key");
             int shift = scan.nextInt();
             Encrypted encrypted = new Encrypted(plainText, shift);
-            System.out.println(String.format("Your encrypted code is :   %s\",encrypted.encrypt()"));
+            System.out.println(String.format("Your encrypted code is %s",encrypted.encrypt()));
 
         }else if (choose == 2){
             System.out.println("Please Enter an encrypted text to decrypt it:");
@@ -40,7 +40,7 @@ public class App {
             System.out.println("Enter key");
             int shift = scan.nextInt();
             Decrypted decrypted = new Decrypted(plainText, shift);
-            System.out.println(String.format("Your decrypted text is:  %s\",decrypted.decrypt()"));
+            System.out.println(String.format("Your decrypted text is:  %s",decrypted.decrypt()));
         }else if (choose == 3){
             System.exit(0);
         }

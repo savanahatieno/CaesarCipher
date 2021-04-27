@@ -29,7 +29,7 @@ public class Decrypted {
         }
         return true;
     }
-    public boolean isValidKey()
+    public boolean isValidShift()
     {
         return mshift >1 && mshift < 26;
     }
