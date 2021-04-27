@@ -1,59 +1,65 @@
 package cipher;
-import java.util.Scanner;
 
 
 public class Decrypted {
-    public static String  decrypt(String plainText, int shift) {
-       Scanner in=new Scanner (System.in);
-       Encrypted e = new Encrypted();
 
+    private String mplainText;
+    private int mshift;
 
-        if (shift > 26) {
-            shift =  shift%26;
-        }
-        else if (shift<0){
-            shift = (shift%26)+26;
-        }
-
-        String cipherText = "";
-        //Getting length of plainText
-        int length = plainText.length();
-        //looping the plainText
-        for(int i = 0; i<length; i++){
-            char ch = plainText.charAt(i);
-            if(Character.isLetter(ch)){
-                // check whether its uppercase / lowercase
-                if(Character.isLowerCase(ch)){
-                    char c = (char)(ch-shift);
-                    if(c < 'a'){
-                        cipherText += (char)(ch + (26-shift));
-                    }
-                    else
-                        cipherText += c;
-                }
-                else if(Character.isUpperCase(ch)){
-                    char c = (char)(ch-shift);
-                    if(c < 'a'){
-                        cipherText += (char)(ch +(26-shift));
-                    }
-                    else
-                        cipherText += c;
-                }
-            }
-            else{
-                cipherText += ch;
-            }
-        }
-        return cipherText;
-
+    public Decrypted (String plainText, int shift) {
+        mshift = shift;
+        mplainText = plainText;
     }
 
 
-    public static void main (String[]  args){
-        String text = "I bet you are smiling right now reading this, have a great day stranger!";
-        String descrypted = decrypt (text, 5);
-        System.out.println(descrypted);
-        System.out.println(text);
+    public String getplainText() {
+        return mplainText;
+    }
+    public int getshift() {
+        return mshift;
+    }
+    public boolean isValidPlainText()
+    {
+        char[] chars = mplainText.toCharArray();
+
+        for (char c : chars) {
+            if(!Character.isLetter(c) && c != ' ') {
+                return false;
+            }
+        }
+        return true;
+    }
+    public boolean isValidKey()
+    {
+        return mshift >1 && mshift < 26;
+    }
+
+    public String decrypt()
+    {
+        String decryptedValue = "";
+        String encryptedArray[] = mplainText.split("");
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        for (int i = 0; i<encryptedArray.length;i++)
+        {
+            if (mplainText.charAt(i) == ' ')
+            {
+                decryptedValue += " ";
+            }
+            else
+            {
+                int charPosition = alphabet.indexOf(mplainText.charAt(i));
+                int shiftVal = (charPosition - mshift) % 26;
+
+                if (shiftVal < 0)
+                {
+                    shiftVal = alphabet.length() + shiftVal;
+                }
+
+                char replaceValue = alphabet.charAt(shiftVal);
+                decryptedValue += replaceValue;
+            }
+        }
+        return decryptedValue;
     }
 
 
